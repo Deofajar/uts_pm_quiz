@@ -17,4 +17,19 @@ class QuizResult {
     required this.correctCount,
     required this.score,
   });
+
+  // Jumlah seluruh soal.
+  int get totalQuestions => questions.length;
+
+  // Jumlah soal yang tidak dijawab (jawabannya null).
+  int get unansweredCount {
+    int count = 0;
+    for (final answer in answers) {
+      if (answer == null) count++;
+    }
+    return count;
+  }
+
+  // Jumlah soal yang dijawab tapi salah.
+  int get wrongCount => totalQuestions - correctCount - unansweredCount;
 }

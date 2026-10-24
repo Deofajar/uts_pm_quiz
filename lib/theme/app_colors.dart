@@ -28,6 +28,10 @@ class AppColors {
   static const Color darkError = Color(0xFFF87171);
   static const Color darkHeroCard = Color(0xFF262A5A);
 
+  // ===== Warna "benar" (tidak ada di ColorScheme) =====
+  static const Color lightSuccess = Color(0xFF1C7A45);
+  static const Color darkSuccess = Color(0xFF4ADE80);
+
   // ===== Sama di kedua mode =====
   static const Color accent = Color(0xFFFFB547);
   static const Color white = Color(0xFFFFFFFF);

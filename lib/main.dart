@@ -6,6 +6,7 @@ import 'providers/theme_provider.dart';
 import 'screens/name_screen.dart';
 import 'screens/quiz_screen.dart';
 import 'screens/result_screen.dart';
+import 'screens/review_screen.dart';
 import 'screens/subject_screen.dart';
 import 'theme/app_theme.dart';
 
@@ -48,6 +49,7 @@ class KuisinApp extends StatelessWidget {
         '/subject': (context) => const SubjectScreen(),
         '/quiz': (context) => const QuizScreen(),
         '/result': (context) => const ResultScreen(),
+        '/review': (context) => const ReviewScreen(),
       },
     );
   }
