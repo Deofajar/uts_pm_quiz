@@ -128,21 +128,13 @@ Layout dipilih memakai `LayoutBuilder` berdasarkan lebar dan tinggi layar. Lebar
 
 | Halaman | Tampilan |
 |---|---|
-| Masukkan Nama | <img width="1080" height="2424" alt="Screenshot_20261026_025938" src="https://github.com/user-attachments/assets/f0173499-1d48-494a-82e2-b8257ad861c2" />
- |
-| Pilih Mata Pelajaran | <img width="1080" height="2424" alt="Screenshot_20261026_030013" src="https://github.com/user-attachments/assets/ef8d217f-01f1-4f68-8758-2e894e56f91b" />
- |
-| Soal | <img width="1080" height="2424" alt="Screenshot_20261026_030033" src="https://github.com/user-attachments/assets/9e70551a-1e86-4fa8-af9a-46d2a8075263" />
- |
-| Skor Akhir |  |<img width="1080" height="2424" alt="Screenshot_20261026_030120" src="https://github.com/user-attachments/assets/398b58fd-1703-43b4-bb08-31ca2ce72d69" />
-
-| Pembahasan | <img width="1080" height="2424" alt="Screenshot_20261026_030134" src="https://github.com/user-attachments/assets/c5a07b33-33a8-464d-8655-cfdd595fd57c" />
- |
-| Mode Gelap | <img width="1080" height="2424" alt="Screenshot_20261026_030148" src="https://github.com/user-attachments/assets/e9b63f10-d6ba-42dd-986d-ecc8dfd8a89f" />
- |
-| Tablet | <img width="1583" height="856" alt="Screenshot 2026-10-26 030624" src="https://github.com/user-attachments/assets/4f47df82-da84-498d-adc7-21bef942b61e" />
- |
-
+| Masukkan Nama | <img alt="Screenshot_20261026_025938" src="https://github.com/user-attachments/assets/f0173499-1d48-494a-82e2-b8257ad861c2" width="420" /> |
+| Pilih Mata Pelajaran | <img alt="Screenshot_20261026_030013" src="https://github.com/user-attachments/assets/ef8d217f-01f1-4f68-8758-2e894e56f91b" width="420" /> |
+| Soal | <img alt="Screenshot_20261026_030033" src="https://github.com/user-attachments/assets/9e70551a-1e86-4fa8-af9a-46d2a8075263" width="420" /> |
+| Skor Akhir | <img alt="Screenshot_20261026_030120" src="https://github.com/user-attachments/assets/398b58fd-1703-43b4-bb08-31ca2ce72d69" width="420" /> |
+| Pembahasan | <img alt="Screenshot_20261026_030134" src="https://github.com/user-attachments/assets/c5a07b33-33a8-464d-8655-cfdd595fd57c" width="420" /> |
+| Mode Gelap | <img alt="Screenshot_20261026_030148" src="https://github.com/user-attachments/assets/e9b63f10-d6ba-42dd-986d-ecc8dfd8a89f" width="420" /> |
+| Tablet | <img alt="Screenshot 2026-10-26 030624" src="https://github.com/user-attachments/assets/4f47df82-da84-498d-adc7-21bef942b61e" width="700" /> |
 ### Link Mockup / Prototype
 
 [LINK MOCKUP]
