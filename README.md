@@ -130,7 +130,8 @@ Layout dipilih memakai `LayoutBuilder` berdasarkan lebar dan tinggi layar. Lebar
 |---|---|
 | Masukkan Nama | <img width="1080" height="2424" alt="Screenshot_20261026_025938" src="https://github.com/user-attachments/assets/f0173499-1d48-494a-82e2-b8257ad861c2" />
  |
-| Pilih Mata Pelajaran | <img src="screenshots/02-mapel.png" width="250"> |
+| Pilih Mata Pelajaran | <img width="1080" height="2424" alt="Screenshot_20261026_030013" src="https://github.com/user-attachments/assets/ef8d217f-01f1-4f68-8758-2e894e56f91b" />
+ |
 | Soal | <img width="1080" height="2424" alt="Screenshot_20261026_030033" src="https://github.com/user-attachments/assets/9e70551a-1e86-4fa8-af9a-46d2a8075263" />
  |
 | Skor Akhir |  |<img width="1080" height="2424" alt="Screenshot_20261026_030120" src="https://github.com/user-attachments/assets/398b58fd-1703-43b4-bb08-31ca2ce72d69" />
