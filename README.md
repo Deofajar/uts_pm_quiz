@@ -128,13 +128,19 @@ Layout dipilih memakai `LayoutBuilder` berdasarkan lebar dan tinggi layar. Lebar
 
 | Halaman | Tampilan |
 |---|---|
-| Masukkan Nama | <img src="screenshots/01-nama.png" width="250"> |
+| Masukkan Nama | <img width="1080" height="2424" alt="Screenshot_20261026_025938" src="https://github.com/user-attachments/assets/f0173499-1d48-494a-82e2-b8257ad861c2" />
+ |
 | Pilih Mata Pelajaran | <img src="screenshots/02-mapel.png" width="250"> |
-| Soal | <img src="screenshots/03-soal.png" width="250"> |
-| Skor Akhir | <img src="screenshots/04-hasil.png" width="250"> |
-| Pembahasan | <img src="screenshots/05-pembahasan.png" width="250"> |
-| Mode Gelap | <img src="screenshots/06-dark.png" width="250"> |
-| Tablet | <img src="screenshots/07-tablet.png" width="400"> |
+| Soal | <img width="1080" height="2424" alt="Screenshot_20261026_030033" src="https://github.com/user-attachments/assets/9e70551a-1e86-4fa8-af9a-46d2a8075263" />
+ |
+| Skor Akhir |  |<img width="1080" height="2424" alt="Screenshot_20261026_030120" src="https://github.com/user-attachments/assets/398b58fd-1703-43b4-bb08-31ca2ce72d69" />
+
+| Pembahasan | <img width="1080" height="2424" alt="Screenshot_20261026_030134" src="https://github.com/user-attachments/assets/c5a07b33-33a8-464d-8655-cfdd595fd57c" />
+ |
+| Mode Gelap | <img width="1080" height="2424" alt="Screenshot_20261026_030148" src="https://github.com/user-attachments/assets/e9b63f10-d6ba-42dd-986d-ecc8dfd8a89f" />
+ |
+| Tablet | <img width="1583" height="856" alt="Screenshot 2026-10-26 030624" src="https://github.com/user-attachments/assets/4f47df82-da84-498d-adc7-21bef942b61e" />
+ |
 
 ### Link Mockup / Prototype
 
