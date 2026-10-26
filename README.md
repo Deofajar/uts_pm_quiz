@@ -1,17 +1,142 @@
-# uts_lab_pm_quiz
+# Kuisin – Aplikasi Kuis Pilihan Ganda
 
-A new Flutter project.
+Tugas UTS Lab Pemrograman Mobile, Semester Ganjil T.A. 2026/2027.
 
-## Getting Started
+## Identitas Mahasiswa
 
-This project is a starting point for a Flutter application.
+| |                                   |
+|---|-----------------------------------|
+| Nama | [Deofajar Jhonropinus Situmorang] |
+| NIM | [241401102]                       |
+| Lab | [5 (Pindahan LAB 6)]              |
 
-A few resources to get you started if this is your first Flutter project:
+## Informasi Aplikasi
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+**Nama Aplikasi:** Kuisin
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Deskripsi:**
+Kuisin adalah aplikasi kuis pilihan ganda berbasis Flutter. Pengguna memasukkan nama, memilih salah satu dari enam mata pelajaran, lalu menjawab 10 soal pilihan ganda. Setelah jawaban dikirim, aplikasi menampilkan skor akhir beserta pembahasan setiap soal.
+
+### Fitur Utama
+
+1. **Halaman Masukkan Nama**
+   - Input nama dengan validasi: tidak boleh kosong, minimal 2 huruf, maksimal 20 karakter. Pesan error tampil langsung di bawah kolom.
+   - Kuis bisa dimulai dengan tombol "Mulai" atau tombol Enter/Done di keyboard.
+   - Nama tersimpan di provider, jadi kolom tetap terisi saat pengguna kembali ke halaman ini.
+
+2. **Halaman Pilih Mata Pelajaran**
+   - Sapaan dengan avatar berisi huruf pertama nama, dan tombol "Ganti nama" untuk kembali ke halaman nama.
+   - Enam mata pelajaran dalam bentuk grid: Matematika, Fisika, Biologi, Sejarah, Bahasa Inggris, dan Pengetahuan Umum.
+   - Setiap kartu menampilkan status mapel: "Belum dicoba", "Lanjutkan · X/10 terjawab" (kuis belum dikirim), atau "Terakhir X" (skor terakhir).
+
+3. **Halaman Soal**
+   - Satu halaman (`QuizScreen`) menampilkan semua soal berdasarkan data, bukan satu file per soal.
+   - Progress bar berisi jumlah soal terjawab dan persentasenya.
+   - Empat pilihan jawaban (A–D). Jawaban bisa diganti selama kuis belum dikirim.
+   - Deretan nomor soal 1–10 untuk lompat langsung ke soal tertentu. Warnanya membedakan soal aktif, sudah dijawab, dan belum dijawab.
+   - Tombol "Sebelumnya" dan "Berikutnya". Di soal terakhir, tombol berubah menjadi "Kirim Jawaban".
+   - Tombol "Keluar" kembali ke halaman mapel tanpa menghapus progres. Muncul SnackBar "Progres disimpan".
+
+4. **Kirim Jawaban dengan Konfirmasi**
+   - Kalau masih ada soal kosong, muncul dialog "Masih ada soal kosong" beserta jumlahnya. Tombol "Periksa lagi" langsung membuka soal kosong pertama.
+   - Kalau semua soal sudah dijawab, muncul dialog "Kirim jawaban?" sebagai konfirmasi terakhir.
+
+5. **Halaman Skor Akhir**
+   - Lingkaran skor 0–100.
+   - Judul dan kalimat penyemangat menyesuaikan skor (100, 80–99, 60–79, dan di bawah 60).
+   - Ringkasan jumlah jawaban Benar, Salah, dan Kosong.
+   - Tombol "Lihat Pembahasan", "Ulangi" (kuis mapel yang sama dimulai dari awal), "Mapel Lain", dan tombol beranda.
+
+6. **Halaman Pembahasan**
+   - Filter Semua, Benar, Salah, dan Kosong. Filter "Kosong" hanya muncul kalau ada soal yang tidak dijawab.
+   - Setiap soal menampilkan jawaban pengguna dan status (benar/salah/tidak dijawab). Nomor soal tetap memakai nomor aslinya.
+   - Untuk soal yang salah atau kosong, ditampilkan juga jawaban yang benar dan penjelasan singkatnya.
+
+### Penerapan Kriteria UTS
+
+| Kriteria | Penerapan di aplikasi | File terkait |
+|---|---|---|
+| StatelessWidget & StatefulWidget | **StatefulWidget** dipakai kalau halaman punya state lokal: `NameScreen` (isi kolom nama dan pesan error) dan `ReviewScreen` (filter yang sedang dipilih). **StatelessWidget** dipakai kalau datanya diambil dari provider: `SubjectScreen`, `QuizScreen`, `ResultScreen`, dan semua widget di `lib/widgets/`. | `lib/screens/name_screen.dart`, `lib/screens/review_screen.dart`, `lib/screens/subject_screen.dart`, `lib/screens/quiz_screen.dart`, `lib/screens/result_screen.dart` |
+| Minimal 2 halaman + navigasi | Ada 5 halaman dengan named routes: `/` dan `/name` (Nama), `/subject` (Mapel), `/quiz` (Soal), `/result` (Skor), `/review` (Pembahasan). Navigasi memakai `pushNamed`, `pop`, `pushReplacementNamed` (setelah kirim jawaban, supaya tombol back tidak kembali ke kuis yang sudah selesai), dan `popUntil`. | `lib/main.dart`, `lib/screens/` |
+| Reusable widget | Komponen yang dipakai berulang dibuat sebagai widget di file sendiri: `AppLogo`, `HeroCard`, `NameTextField`, `PrimaryButton`, `SecondaryButton`, `SquareIconButton`, `ThemeToggleButton`, `UserAvatar`, `InfoBanner`, `SubjectCard`, `OptionTile`, `QuestionNumberBar`, `ScoreRing`, `StatCard`, `FilterPill`, `ReviewCard`. | `lib/widgets/` |
+| Aset gambar/ikon | Gambar SVG `logo.svg` dan `hero_quiz.svg` ditampilkan dengan package `flutter_svg`. Ikon memakai Material Icons versi rounded. | `assets/images/`, `lib/widgets/app_logo.dart`, `lib/widgets/hero_card.dart` |
+| Font kustom | File TTF dibundel sebagai aset dan didaftarkan di `pubspec.yaml` (tanpa google_fonts): Plus Jakarta Sans (400, 600, 700, 800) untuk teks isi dan Bricolage Grotesque (700, 800) untuk judul. | `assets/fonts/`, `pubspec.yaml`, `lib/theme/app_theme.dart` |
+| Ukuran dinamis | Setiap widget menghitung `scale = (shortestSide / 390).clamp(0.85, 1.3)` dari `MediaQuery`. Ukuran font, padding, radius, dan tinggi dikali `scale`. Beberapa ukuran memakai persentase layar, misalnya tinggi HeroCard ±30% tinggi layar dan diameter lingkaran skor ±45% lebar layar. | Semua file di `lib/screens/` dan `lib/widgets/` |
+| State management | Memakai package `provider`. `ThemeProvider` menyimpan mode tema. `QuizProvider` menyimpan nama pengguna, mapel yang dipilih, jawaban dan nomor soal terakhir **per mapel**, hasil kuis terakhir (`lastResult`), dan skor terakhir per mapel. Kedua provider dipasang dengan `MultiProvider` di atas `MaterialApp`, jadi datanya tidak ikut hilang saat layar dirotasi atau halaman berganti. Itu sebabnya progres jawaban tetap ada setelah keluar lalu masuk lagi ke kuis. | `lib/main.dart`, `lib/providers/quiz_provider.dart`, `lib/providers/theme_provider.dart` |
+| Tanpa database | Daftar mapel dan bank soal (6 mapel × 10 soal) disimpan sebagai data lokal (konstanta Dart). | `lib/data/subject_data.dart`, `lib/data/question_data.dart` |
+
+### Fitur Bonus
+
+**Dark & Light Mode**
+- Tema terang dan gelap didefinisikan di `AppTheme`, dengan warna dari `AppColors`.
+- Tema bisa diganti lewat tombol bulan/matahari di pojok kanan atas setiap halaman (Nama, Mapel, Soal, Skor, dan Pembahasan). Tema awalnya terang.
+- Pilihan tema disimpan di `ThemeProvider`, jadi berlaku di semua halaman selama aplikasi berjalan.
+
+**Layout Adaptif & Responsif**
+
+Layout dipilih memakai `LayoutBuilder` berdasarkan lebar dan tinggi layar. Lebar konten dibatasi maksimal 1100 px (800 px untuk halaman Pembahasan) supaya tetap rapi di web.
+
+| Halaman | HP potret | HP lanskap | Tablet / Web |
+|---|---|---|---|
+| Nama | Satu kolom, tombol "Mulai" di bawah | Dua kolom (ilustrasi di kiri, form di kanan) | Dua kolom (lebar ≥ 600) |
+| Mapel | Grid 2 kolom | Grid 3 kolom | Grid 3 kolom (lebar 600–1023) atau 4 kolom (lebar ≥ 1024) |
+| Soal | Satu kolom; header dan tombol tetap, soal di-scroll | Seluruh halaman di-scroll kalau tinggi < 500 | Dua kolom (soal di kiri, pilihan di kanan) kalau lebar ≥ 720 |
+| Skor | Satu kolom | Satu kolom yang bisa di-scroll; dua kolom kalau lebar ≥ 720 | Dua kolom (kartu skor di kiri, statistik dan tombol di kanan) |
+| Pembahasan | Header dan filter tetap, daftar soal di-scroll | Seluruh halaman di-scroll kalau tinggi < 500 | Konten di tengah, lebar maksimal 800 |
+
+## Teknologi
+
+- Flutter 3.47.6 (channel stable)
+- Dart 3.13.5
+
+| Package | Versi | Kegunaan |
+|---|---|---|
+| `provider` | 6.1.5+1 | State management (`ThemeProvider`, `QuizProvider`) |
+| `flutter_svg` | 2.3.0 | Menampilkan gambar SVG (logo dan ilustrasi) |
+| `cupertino_icons` | 1.0.9 | Bawaan template Flutter, tidak dipakai langsung di kode |
+| `flutter_lints` (dev) | ^6.0.0 | Aturan analisis kode untuk `flutter analyze` |
+
+## Cara Menjalankan
+
+1. Pasang dependency:
+   ```bash
+   flutter pub get
+   ```
+2. Jalankan di emulator atau HP:
+   ```bash
+   flutter run
+   ```
+3. Jalankan di browser (Chrome):
+   ```bash
+   flutter run -d chrome
+   ```
+
+## Dokumentasi
+
+### Credit Aset
+
+| Aset | Sumber | Lisensi |
+|---|---|---|
+| Font Plus Jakarta Sans | Tokotype – [github.com/tokotype/PlusJakartaSans](https://github.com/tokotype/PlusJakartaSans) | SIL Open Font License 1.1 (`assets/fonts/OFL_PlusJakartaSans.txt`) |
+| Font Bricolage Grotesque | Mathieu Triay – [github.com/ateliertriay/bricolage](https://github.com/ateliertriay/bricolage) | SIL Open Font License 1.1 (`assets/fonts/OFL_BricolageGrotesque.txt`) |
+| Material Icons | Google – [fonts.google.com/icons](https://fonts.google.com/icons) | Apache License 2.0 |
+| Ilustrasi `hero_quiz.svg` dan `logo.svg` | Dibuat sendiri | – |
+| Package `provider` | [pub.dev/packages/provider](https://pub.dev/packages/provider) | MIT License |
+| Package `flutter_svg` | [pub.dev/packages/flutter_svg](https://pub.dev/packages/flutter_svg) | MIT License |
+
+### Screenshot
+
+| Halaman | Tampilan |
+|---|---|
+| Masukkan Nama | <img src="screenshots/01-nama.png" width="250"> |
+| Pilih Mata Pelajaran | <img src="screenshots/02-mapel.png" width="250"> |
+| Soal | <img src="screenshots/03-soal.png" width="250"> |
+| Skor Akhir | <img src="screenshots/04-hasil.png" width="250"> |
+| Pembahasan | <img src="screenshots/05-pembahasan.png" width="250"> |
+| Mode Gelap | <img src="screenshots/06-dark.png" width="250"> |
+| Tablet | <img src="screenshots/07-tablet.png" width="400"> |
+
+### Link Mockup / Prototype
+
+[LINK MOCKUP]
+

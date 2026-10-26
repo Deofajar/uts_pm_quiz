@@ -32,4 +32,10 @@ class QuizResult {
 
   // Jumlah soal yang dijawab tapi salah.
   int get wrongCount => totalQuestions - correctCount - unansweredCount;
+
+  // True kalau soal ke-[index] dijawab.
+  bool isAnswered(int index) => answers[index] != null;
+
+  // True kalau jawaban soal ke-[index] sama dengan kunci jawaban.
+  bool isCorrect(int index) => answers[index] == questions[index].correctIndex;
 }
